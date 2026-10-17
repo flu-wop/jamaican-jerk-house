@@ -25,15 +25,25 @@ export default function MenuView({ loc, categories }: { loc: LocationSlug; categ
 
   return (
     <div>
-      <div className="sticky top-[65px] z-30 border-b border-ink/10 bg-cream/95 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-3 md:flex-row md:items-center">
+      <div className="mx-auto max-w-6xl px-6 pb-3 md:hidden">
+        <input
+          type="search"
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
+          placeholder="Search the menu"
+          aria-label="Search the menu"
+          className="w-full rounded-full border border-ink/20 bg-white/60 px-4 py-2 text-sm focus:border-green focus:outline-none"
+        />
+      </div>
+      <div className="sticky top-[69px] z-30 border-b border-ink/10 bg-cream/95 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center gap-3 px-6 py-3">
           <input
             type="search"
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Search the menu"
             aria-label="Search the menu"
-            className="w-full rounded-full border border-ink/20 bg-white/60 px-4 py-2 text-sm focus:border-green focus:outline-none md:w-64"
+            className="hidden w-64 shrink-0 rounded-full border border-ink/20 bg-white/60 px-4 py-2 text-sm focus:border-green focus:outline-none md:block"
           />
           <nav aria-label="Menu categories" className="-mx-6 flex gap-2 overflow-x-auto px-6 md:mx-0 md:px-0">
             {categories.map((c) => (
@@ -54,7 +64,7 @@ export default function MenuView({ loc, categories }: { loc: LocationSlug; categ
           <p className="py-16 text-center text-ink/60">Nothing matches “{q}”. Try another word.</p>
         )}
         {filtered.map((c) => (
-          <section key={c.id} id={c.slug} className="scroll-mt-40 pb-12">
+          <section key={c.id} id={c.slug} className="scroll-mt-36 pb-12">
             <h2 className="mb-5 font-display text-2xl font-semibold md:text-3xl">{c.name}</h2>
             <ul className="grid gap-4 md:grid-cols-2">
               {c.items.map((i) => (
