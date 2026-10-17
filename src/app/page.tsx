@@ -4,8 +4,6 @@ import { findByName, hasRange, money } from "@/lib/menu";
 import { locationList } from "@/lib/site";
 import LocationCard from "@/components/sections/LocationCard";
 
-const HERO =
-  "https://0c5bb43d305fed74f010.cdn6.editmysite.com/uploads/b/0c5bb43d305fed74f010be4cef9ec539d24182cb2cc4e24edf96f3f409b93825/2024-10-06_12-40-53_1728236477.jpg";
 const STORY =
   "https://s3-media0.fl.yelpcdn.com/bphoto/a5yXEmjwZC-xHPvpq5XhXA/o.jpg";
 
@@ -22,6 +20,10 @@ export default function Home() {
       .map((n) => findByName("metairie", n))
       .filter((i): i is NonNullable<typeof i> => !!i),
   }));
+
+  const heroPlates = ["Oxtails", "Jerk Beef Ribs", "Jerk Shrimp Plate"]
+    .map((n) => findByName("metairie", n))
+    .filter((i): i is NonNullable<typeof i> => !!i && !!i.image);
 
   return (
     <>
@@ -50,10 +52,15 @@ export default function Home() {
           </div>
           <p className="mt-3 text-sm text-ink/55">Pickup at either location. No account needed.</p>
         </div>
-        <div className="relative">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-xl">
-            <Image src={HERO} alt="Braised oxtail plate from Jamaican Jerk House" fill priority sizes="(min-width: 768px) 560px, 100vw" className="object-cover" />
-          </div>
+        <div className="grid grid-cols-3 gap-3 sm:gap-4">
+          {heroPlates.map((i, n) => (
+            <figure key={i.id} className={n === 1 ? "mt-8 sm:mt-12" : ""}>
+              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-ink/10 shadow-xl">
+                <Image src={i.image!} alt={`${i.name} plate`} fill priority={n === 0} sizes="(min-width: 768px) 190px, 30vw" className="object-cover" />
+              </div>
+              <figcaption className="mt-2 text-center text-xs font-medium text-ink/70 sm:text-sm">{i.name}</figcaption>
+            </figure>
+          ))}
         </div>
       </section>
 
