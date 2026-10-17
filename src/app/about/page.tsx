@@ -37,7 +37,7 @@ export default function AboutPage() {
         <div className="md:col-span-2">
           <div className="relative mx-auto aspect-[3/4] max-w-xs overflow-hidden rounded-2xl shadow-lg">
             <Image
-              src="https://s3-media0.fl.yelpcdn.com/bphoto/a5yXEmjwZC-xHPvpq5XhXA/ls.jpg"
+              src="https://s3-media0.fl.yelpcdn.com/bphoto/a5yXEmjwZC-xHPvpq5XhXA/o.jpg"
               alt="Jerk plate with rice, cabbage and plantain"
               fill
               sizes="320px"

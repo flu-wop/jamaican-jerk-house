@@ -5,9 +5,9 @@ import { locationList } from "@/lib/site";
 import LocationCard from "@/components/sections/LocationCard";
 
 const HERO =
-  "https://0c5bb43d305fed74f010.cdn6.editmysite.com/uploads/b/0c5bb43d305fed74f010be4cef9ec539d24182cb2cc4e24edf96f3f409b93825/2024-10-06_12-40-53_1728236477.jpg?width=1200";
+  "https://0c5bb43d305fed74f010.cdn6.editmysite.com/uploads/b/0c5bb43d305fed74f010be4cef9ec539d24182cb2cc4e24edf96f3f409b93825/2024-10-06_12-40-53_1728236477.jpg";
 const STORY =
-  "https://s3-media0.fl.yelpcdn.com/bphoto/a5yXEmjwZC-xHPvpq5XhXA/ls.jpg";
+  "https://s3-media0.fl.yelpcdn.com/bphoto/a5yXEmjwZC-xHPvpq5XhXA/o.jpg";
 
 const GROUPS: { title: string; names: string[] }[] = [
   { title: "Jerk & Mains", names: ["Authentic Jerk Chicken", "Pork Rib", "Jerk Shrimp Plate", "Oxtails", "Curry Chicken", "Curry Goat"] },
