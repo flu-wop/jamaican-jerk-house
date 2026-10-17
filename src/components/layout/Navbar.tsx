@@ -15,7 +15,7 @@ export default function Navbar() {
   useEffect(() => setMenu(false), [pathname]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-ink/10 bg-cream/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-cream/10 bg-ink/95 text-cream backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
         <Link href="/" className="flex items-center gap-3">
           <Image
@@ -23,7 +23,7 @@ export default function Navbar() {
             alt="Jamaican Jerk House logo"
             width={44}
             height={44}
-            className="h-11 w-11 rounded-full bg-ink object-cover"
+            className="h-11 w-11 rounded-full object-cover"
           />
           <span className="font-display text-lg font-semibold leading-none">
             Jamaican
@@ -36,8 +36,8 @@ export default function Navbar() {
             <Link
               key={l.href}
               href={l.href}
-              className={`transition-colors hover:text-green ${
-                pathname.startsWith(l.href) ? "text-green" : ""
+              className={`transition-colors hover:text-gold ${
+                pathname.startsWith(l.href) ? "text-gold" : ""
               }`}
             >
               {l.label}
@@ -49,7 +49,7 @@ export default function Navbar() {
           <button
             onClick={() => setOpen(true)}
             aria-label={`Open order, ${count} item${count === 1 ? "" : "s"}`}
-            className="relative grid h-10 w-10 place-items-center rounded-full border border-ink/20 hover:border-green"
+            className="relative grid h-10 w-10 place-items-center rounded-full border border-cream/25 hover:border-gold"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
               <path d="M5 8h14l-1.2 11a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z" stroke="currentColor" strokeWidth="1.6" />
@@ -63,7 +63,7 @@ export default function Navbar() {
           </button>
           <Link
             href="/menu"
-            className="hidden rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-cream transition-colors hover:bg-green sm:block"
+            className="hidden rounded-full bg-lime px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-gold sm:block"
           >
             Order Online
           </Link>
@@ -71,7 +71,7 @@ export default function Navbar() {
             onClick={() => setMenu((m) => !m)}
             aria-label="Menu"
             aria-expanded={menu}
-            className="grid h-10 w-10 place-items-center rounded-full border border-ink/20 md:hidden"
+            className="grid h-10 w-10 place-items-center rounded-full border border-cream/25 md:hidden"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
               <path d={menu ? "M6 6l12 12M18 6 6 18" : "M4 7h16M4 12h16M4 17h16"} stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
@@ -81,11 +81,11 @@ export default function Navbar() {
       </div>
 
       {menu && (
-        <nav className="border-t border-ink/10 bg-cream px-6 py-4 md:hidden" aria-label="Mobile">
+        <nav className="border-t border-cream/10 bg-ink px-6 py-4 md:hidden" aria-label="Mobile">
           <ul className="space-y-1">
             {[{ href: "/menu", label: "Order Online" }, ...navLinks.filter((l) => l.href !== "/menu")].map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="block rounded-lg px-2 py-3 text-lg font-display hover:bg-ink/5">
+                <Link href={l.href} className="block rounded-lg px-2 py-3 text-lg font-display hover:bg-cream/10">
                   {l.label}
                 </Link>
               </li>
